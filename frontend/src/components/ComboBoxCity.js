@@ -24,4 +24,5 @@ export default function ComboBoxCity() {
 const ComboBoxCityContainer = styled.div`
   display: grid;
   justify-content: center;
+  padding: 5px;
     `

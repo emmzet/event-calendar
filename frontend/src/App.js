@@ -1,6 +1,9 @@
 import Header from './components/Header'
 import Navbar from "./components/NavBar";
 import ComboBoxCity from "./components/ComboBoxCity";
+import ComboBoxGenre from "./components/ComboBoxGenre";
+import DatePicker from "./components/EventDatePicker";
+import EventDatePicker from "./components/EventDatePicker";
 
 function App() {
   return (
@@ -8,6 +11,8 @@ function App() {
     <Header />
       <Navbar />
       <ComboBoxCity />
+      <ComboBoxGenre />
+      <EventDatePicker />
     </div>
   );
 }
