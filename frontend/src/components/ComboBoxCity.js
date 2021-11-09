@@ -22,7 +22,7 @@ export default function ComboBoxCity() {
 }
 
 const ComboBoxCityContainer = styled.div`
-  display: grid;
+  display: flex;
   justify-content: center;
   padding: 5px;
     `
