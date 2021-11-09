@@ -1,11 +1,11 @@
-import Header from "../components/Header";
+import AddEventForm from "../components/AddEventForm";
 
 
 export default function AddEvent() {
 
     return (
-        <section>
-            <Header />
-        </section>
+        <div>
+           <AddEventForm />
+        </div>
     )
 }
