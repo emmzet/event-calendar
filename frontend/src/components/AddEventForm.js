@@ -23,7 +23,6 @@ export default function AddEventForm() {
         city: "",
         genre: "",
     })
-    console.log(eventToAdd)
 
     const handleNameChange = (event) => {
         setEventToAdd({...eventToAdd, name: event.target.value})
@@ -74,9 +73,7 @@ export default function AddEventForm() {
             <Button variant="contained">Submit</Button>
         </AddEventFormContainer>
     )
-
 }
-
 
 const AddEventFormContainer = styled.div`
   display: flex;
