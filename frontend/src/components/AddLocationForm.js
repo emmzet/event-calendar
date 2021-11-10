@@ -24,6 +24,10 @@ export default function AddLocationForm() {
         setLocationToAdd({...locationToAdd, name: event.target.value})
     }
 
+    const handleMaxCapacityChange = (event) => {
+        setLocationToAdd({...locationToAdd, name: event.target.value})
+    }
+
     const handleCityChance = (event, value) => {
         setLocationToAdd({...locationToAdd, city: value})
     }
@@ -31,6 +35,7 @@ export default function AddLocationForm() {
     return (<AddLocationFormContainer>
         <TextField id="outlined-basic" label="Name" variant="outlined" onChange={handleNameChange}/>
         <TextField id="outlined-basic" label="Address" variant="outlined" onChange={handleAddressChange}/>
+        <TextField id="outlined-basic" label="Max Capacity" variant="outlined" onChange={handleMaxCapacityChange}/>
         <Autocomplete
             disablePortal
             id="combo-box-city"
