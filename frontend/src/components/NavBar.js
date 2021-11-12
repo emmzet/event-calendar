@@ -6,13 +6,10 @@ export default function NavBar(props) {
     return (
         <NavBarContainer>
             <NavLink to="/">
-                Find Event
+                Show all Events
             </NavLink>
             <NavLink to="/add-event">
                 Add Event
-            </NavLink>
-            <NavLink to="/add-location">
-                Add Location
             </NavLink>
 
         </NavBarContainer>

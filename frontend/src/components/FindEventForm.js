@@ -75,11 +75,11 @@ export default function FindEventForm() {
             />
         </LocalizationProvider>
         <TextField id="outlined-basic" label="Max Capacity" variant="outlined" onChange={handleMaxCapacityChange}/>
-        <Button variant="contained">Submit</Button>
+        <Button type="submit" variant="contained">Find Event</Button>
     </FindEventFormContainer>)
 }
 
-const FindEventFormContainer = styled.div`
+const FindEventFormContainer = styled.form`
   display: flex;
   flex-direction: column;
   align-items: stretch;

@@ -3,6 +3,7 @@ import {DatePicker, LocalizationProvider} from "@mui/lab";
 import DateAdapter from "@mui/lab/AdapterMoment";
 import styled from "styled-components";
 import {useState} from "react";
+import axios from "axios";
 
 export default function AddEventForm() {
 
@@ -40,7 +41,12 @@ export default function AddEventForm() {
         setEventToAdd({...eventToAdd, date: event._d.toJSON()})
     }
 
-    return (<AddEventFormContainer>
+    const handleSubmit = (event) => {
+        event.preventDefault()
+        axios.post('/api/event', eventToAdd).then(response => response.data)
+    }
+
+    return (<AddEventFormContainer onSubmit={handleSubmit}>
             <TextField id="outlined-basic" label="Name" variant="outlined" onChange={handleNameChange}/>
             <Autocomplete
                 disablePortal
@@ -70,12 +76,12 @@ export default function AddEventForm() {
                     onChange={handleDateChange}
                 />
             </LocalizationProvider>
-            <Button variant="contained">Submit</Button>
+            <Button type="submit" variant="contained">Submit</Button>
         </AddEventFormContainer>
     )
 }
 
-const AddEventFormContainer = styled.div`
+const AddEventFormContainer = styled.form`
   display: flex;
   flex-direction: column;
   align-items: stretch;
