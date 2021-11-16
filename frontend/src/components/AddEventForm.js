@@ -2,8 +2,9 @@ import {Autocomplete, Button, TextField} from "@mui/material";
 import {DatePicker, LocalizationProvider} from "@mui/lab";
 import DateAdapter from "@mui/lab/AdapterMoment";
 import styled from "styled-components";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import axios from "axios";
+import * as events from "events";
 
 export default function AddEventForm() {
 
@@ -23,6 +24,7 @@ export default function AddEventForm() {
         name: "",
         city: "",
         genre: "",
+        date: "",
     })
 
     const handleNameChange = (event) => {
@@ -45,6 +47,9 @@ export default function AddEventForm() {
         event.preventDefault()
         axios.post('/api/event', eventToAdd).then(response => response.data)
     }
+
+
+
 
     return (<AddEventFormContainer onSubmit={handleSubmit}>
             <TextField id="outlined-basic" label="Name" variant="outlined" onChange={handleNameChange}/>

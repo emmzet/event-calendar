@@ -1,8 +1,8 @@
 import Header from './components/Header'
 import Navbar from "./components/NavBar";
 import {Route, Switch,} from "react-router-dom";
-import AddEvent from "./pages/Add-Event";
-import FindEvent from "./pages/Find-Event";
+import AddEvent from "./pages/AddEvent";
+import EventsOverview from "./pages/EventsOverview";
 
 
 
@@ -14,7 +14,7 @@ function App() {
       <Navbar />
       <Switch>
         <Route exact path="/">
-          <FindEvent />
+          <EventsOverview />
         </Route>
         <Route exact path="/add-event">
           <AddEvent />
