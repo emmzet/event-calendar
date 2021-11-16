@@ -3,6 +3,7 @@ import {useEffect, useState} from "react";
 
 import EventCard from "../components/EventCard";
 import styled from "styled-components";
+import FilterBox from "../components/FilterBox";
 
 
 export default function EventsOverview() {
@@ -10,7 +11,10 @@ export default function EventsOverview() {
     const [events, setEvents] = useState([])
 
     const getEvents = () => {
-        return axios.get('api/event')
+        return axios.get('api/event', {
+            params: {
+                city: 'Hamburg'
+            }})
             .then(response => response.data)
     }
 
@@ -20,7 +24,9 @@ export default function EventsOverview() {
             .catch(error => console.error(error.message))
     }, [])
 
-    return (<EventsListContainer>
+    return (
+        <EventsListContainer>
+            <FilterBox />
             {events.map(event => {
                 return (
                     <li key={event.id}>
@@ -31,7 +37,7 @@ export default function EventsOverview() {
     </EventsListContainer>)
 }
 
-const EventsListContainer = styled.ul`
+const EventsListContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-items: center;

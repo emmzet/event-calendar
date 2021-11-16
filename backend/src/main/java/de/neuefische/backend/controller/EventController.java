@@ -23,7 +23,7 @@ public class EventController {
     }
 
     @GetMapping
-    public List<Event> getEvents(){
-        return eventService.getEvents();
+    public List<Event> getEvents( @RequestParam (required = false) String name,@RequestParam (required = false) String city, @RequestParam (required = false) String genre){
+        return eventService.getEvents(name, city, genre);
     }
 }
