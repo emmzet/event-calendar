@@ -1,18 +1,25 @@
 import Header from './components/Header'
 import Navbar from "./components/NavBar";
-import ComboBoxCity from "./components/ComboBoxCity";
-import ComboBoxGenre from "./components/ComboBoxGenre";
-import DatePicker from "./components/EventDatePicker";
-import EventDatePicker from "./components/EventDatePicker";
+import {Route, Switch,} from "react-router-dom";
+import AddEvent from "./pages/AddEvent";
+import EventsOverview from "./pages/EventsOverview";
+
+
+
 
 function App() {
   return (
     <div>
     <Header />
       <Navbar />
-      <ComboBoxCity />
-      <ComboBoxGenre />
-      <EventDatePicker />
+      <Switch>
+        <Route exact path="/">
+          <EventsOverview />
+        </Route>
+        <Route exact path="/add-event">
+          <AddEvent />
+        </Route>
+      </Switch>
     </div>
   );
 }

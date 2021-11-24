@@ -3,8 +3,8 @@ import styled from 'styled-components'
 
 export default function Header(props){
     return(
-        <HeaderContainer className="header">
-            <img className="header__image" src={logo} alt="we calent logo"/>
+        <HeaderContainer>
+            <img src={logo} alt="we calent logo"/>
         </HeaderContainer>
     )
 }
