@@ -1,6 +1,7 @@
 package de.neuefische.backend.service;
 
 import de.neuefische.backend.model.Event;
+import de.neuefische.backend.model.Genre;
 import de.neuefische.backend.repo.EventRepo;
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.ExampleMatcher;
@@ -20,12 +21,10 @@ public class EventService {
     }
 
     public Event addEvent(Event event) {
-        String id = UUID.randomUUID().toString();
-        event.setId(id);
         return eventRepo.save(event);
     }
 
-    public List<Event> getEvents(String name, String city, String genre) {
+    public List<Event> getEvents(String name, String city, Genre genre) {
 
         ExampleMatcher exampleMatcher = ExampleMatcher.matching()
                 .withMatcher("name", ExampleMatcher.GenericPropertyMatchers.contains())
@@ -39,9 +38,8 @@ public class EventService {
                 .genre(genre)
                 .build(), exampleMatcher);
 
-
-
-
         return eventRepo.findAll(example);
     }
+
+    public void deleteEvent(String id) {eventRepo.deleteById(id);}
 }

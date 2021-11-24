@@ -1,6 +1,7 @@
 package de.neuefische.backend.controller;
 
 import de.neuefische.backend.model.Event;
+import de.neuefische.backend.model.Genre;
 import de.neuefische.backend.service.EventService;
 import org.springframework.web.bind.annotation.*;
 
@@ -23,7 +24,10 @@ public class EventController {
     }
 
     @GetMapping
-    public List<Event> getEvents( @RequestParam (required = false) String name,@RequestParam (required = false) String city, @RequestParam (required = false) String genre){
+    public List<Event> getEvents( @RequestParam (required = false) String name,@RequestParam (required = false) String city, @RequestParam (required = false) Genre genre){
         return eventService.getEvents(name, city, genre);
     }
+
+    @DeleteMapping({"{id}"})
+    public void deleteEvent(@PathVariable String id) { eventService.deleteEvent(id); }
 }
