@@ -4,7 +4,7 @@ import DateAdapter from "@mui/lab/AdapterMoment";
 import styled from "styled-components";
 import {useEffect, useState} from "react";
 import axios from "axios";
-import * as events from "events";
+
 
 export default function AddEventForm() {
 
