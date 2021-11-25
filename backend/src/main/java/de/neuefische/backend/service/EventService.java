@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.UUID;
 
 @Service
@@ -42,4 +43,13 @@ public class EventService {
     }
 
     public void deleteEvent(String id) {eventRepo.deleteById(id);}
+
+    public Event updateEvent(Event event) {
+
+        if(eventRepo.existsById(event.getId())){
+            return eventRepo.save(event);
+        } else{
+            throw new NoSuchElementException("Could not update element! Element with id does not exist: " + event.getId());
+        }
+    }
 }
