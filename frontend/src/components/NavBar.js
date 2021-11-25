@@ -6,12 +6,14 @@ export default function NavBar(props) {
     return (
         <NavBarContainer>
             <NavLink to="/">
-                Show all Events
+                Home
             </NavLink>
             <NavLink to="/add-event">
                 Add Event
             </NavLink>
-
+            <NavLink to="/events-overview">
+                Show Events
+            </NavLink>
         </NavBarContainer>
     )
 }

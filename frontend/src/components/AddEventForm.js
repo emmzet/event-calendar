@@ -1,9 +1,10 @@
 import {Autocomplete, Button, TextField} from "@mui/material";
-import {DatePicker, LocalizationProvider} from "@mui/lab";
+import {DatePicker, DateTimePicker, LocalizationProvider} from "@mui/lab";
 import DateAdapter from "@mui/lab/AdapterMoment";
 import styled from "styled-components";
 import {useEffect, useState} from "react";
 import axios from "axios";
+import moment from "moment";
 
 
 export default function AddEventForm() {
@@ -39,17 +40,15 @@ export default function AddEventForm() {
         setEventToAdd({...eventToAdd, genre: value})
     }
 
-    const handleDateChange = (event) => {
-        setEventToAdd({...eventToAdd, date: event._d.toJSON()})
+    const handleDateTimeChange = (event) => {
+        setEventToAdd({...eventToAdd, date: moment(event).format("MMMM Do YYYY, h:mm a")})
+        console.log(event)
     }
 
     const handleSubmit = (event) => {
         event.preventDefault()
         axios.post('/api/event', eventToAdd).then(response => response.data)
     }
-
-
-
 
     return (<AddEventFormContainer onSubmit={handleSubmit}>
             <TextField id="outlined-basic" label="Name" variant="outlined" onChange={handleNameChange}/>
@@ -73,12 +72,18 @@ export default function AddEventForm() {
                 getOptionLabel={(genre) => genre.label}
                 isOptionEqualToValue={(option, value) => option.label === value.label}
             />
+
+
+
             <LocalizationProvider dateAdapter={DateAdapter}>
-                <DatePicker
-                    label="Pick your Date"
+                <DateTimePicker
+                    label='Date and time'
+                    defaultValue={null}
+                    value={eventToAdd.date}
+                    onChange={handleDateTimeChange}
+                    name='dateTime'
                     renderInput={(params) => <TextField {...params} />}
-                    value={eventToAdd?.date}
-                    onChange={handleDateChange}
+                    showTodayButton={true}
                 />
             </LocalizationProvider>
             <Button type="submit" variant="contained">Submit</Button>
