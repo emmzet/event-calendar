@@ -4,12 +4,8 @@ import styled from "styled-components";
 export default function AddEvent() {
 
     return (
-        <AddEventContainer>
+        <div>
            <AddEventForm />
-        </AddEventContainer>
+        </div>
     )
 }
-
-const AddEventContainer = styled.div`
-    background-color: beige;
-    `

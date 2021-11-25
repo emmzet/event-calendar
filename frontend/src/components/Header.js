@@ -16,5 +16,4 @@ const HeaderContainer = styled.header`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: beige;
   `

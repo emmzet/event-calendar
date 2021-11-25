@@ -15,7 +15,6 @@ export default function LandingPage(){
 const LandingPageContainer = styled.div`
   display: flex;
   flex-direction: column;
-  background-color: beige;
   `
 
 const LandingPageText = styled.h2`

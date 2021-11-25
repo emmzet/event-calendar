@@ -32,7 +32,7 @@ export default App;
 
 
 const Wrapper = styled.div`
-color: beige;
+background-color: beige;
   position: fixed;
   height: 100vh;
   top: 0;
