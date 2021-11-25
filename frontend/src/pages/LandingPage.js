@@ -16,7 +16,6 @@ const LandingPageContainer = styled.div`
   display: flex;
   flex-direction: column;
   background-color: beige;
-  flex-direction: column;
   `
 
 const LandingPageText = styled.h2`
@@ -24,4 +23,6 @@ const LandingPageText = styled.h2`
   display: flex;
   justify-content: center;
 align-items: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
 `

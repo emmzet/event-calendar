@@ -49,7 +49,7 @@ export default ImageSlider
 
 const Slider = styled.section`
     position: relative;
-  height: 100vh;
+  height: 50vh;
   display: flex;
   justify-content: center;
   align-items: center;

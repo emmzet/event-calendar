@@ -16,7 +16,7 @@ export default function AddEventForm() {
     ];
 
     const genres = [
-        {label: 'Concerts'},
+        {label: 'Concert'},
         {label: 'Sport'},
         {label: 'Comedy'},
     ];
@@ -42,7 +42,6 @@ export default function AddEventForm() {
 
     const handleDateTimeChange = (event) => {
         setEventToAdd({...eventToAdd, date: moment(event).format("MMMM Do YYYY, h:mm a")})
-        console.log(event)
     }
 
     const handleSubmit = (event) => {
@@ -56,7 +55,6 @@ export default function AddEventForm() {
                 disablePortal
                 id="combo-box-city"
                 options={cities}
-                sx={{width: 300}}
                 renderInput={(params) => <TextField {...params} label="City"/>}
                 onInputChange={(event, value) => handleCityChance(event, value)}
                 getOptionLabel={(city) => city.label}
@@ -66,7 +64,6 @@ export default function AddEventForm() {
                 disablePortal
                 id="combo-box-genre"
                 options={genres}
-                sx={{width: 300}}
                 renderInput={(params) => <TextField {...params} label="Genre"/>}
                 onInputChange={(event, value) => handleGenreChange(event, value)}
                 getOptionLabel={(genre) => genre.label}
@@ -94,7 +91,6 @@ export default function AddEventForm() {
 const AddEventFormContainer = styled.form`
   display: flex;
   flex-direction: column;
-  align-items: stretch;
   justify-content: center;
   padding: 5px;
   gap: 25px;

@@ -4,7 +4,7 @@ import {Route, Switch,} from "react-router-dom";
 import AddEvent from "./pages/AddEvent";
 import EventsOverview from "./pages/EventsOverview";
 import LandingPage from "./pages/LandingPage";
-import styled from "styled-components";
+import styled from "styled-components/macro";
 
 
 
@@ -33,5 +33,9 @@ export default App;
 
 const Wrapper = styled.div`
 color: beige;
-  gap: 50px;
+  position: fixed;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  width: 100vw;
 `

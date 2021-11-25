@@ -4,8 +4,6 @@ import {useEffect, useState} from "react";
 import EventCard from "../components/EventCard";
 import styled from "styled-components";
 import FilterBox from "../components/Filterbox";
-import Header from "../components/Header";
-
 
 export default function EventsOverview({onDelete}) {
 
@@ -13,7 +11,6 @@ export default function EventsOverview({onDelete}) {
 
     const [eventFilter, setEventFilter] = useState({
     })
-    console.log(eventFilter)
 
     const getEvents = () => {
         return axios.get('api/event', {
@@ -33,10 +30,10 @@ export default function EventsOverview({onDelete}) {
 
     return (
         <Wrapper>
-        <details>
+        <Details>
             <Summary><p>Use Filter</p></Summary>
             <FilterBox setEventFilter={setEventFilter}/>
-        </details>
+        </Details>
         <EventsListContainer>
             {events.map(event => {
                 return (
@@ -64,7 +61,6 @@ const Wrapper = styled.div`
   justify-content: center;
 overflow-y: scroll;
   background-color: beige;
-  gap: 50px;
   `
 
 const ListElement = styled.li`
@@ -82,4 +78,13 @@ const Summary = styled.summary`
   font-size: 16px;
   border-radius: 12px;
   box-shadow: 1px 2px 8px #666;
+  margin-bottom: 20px;
     `
+
+const Details = styled.details`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+  gap: 10px;
+  `

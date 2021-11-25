@@ -12,7 +12,8 @@ export default function Header(){
 }
 
 const HeaderContainer = styled.header`
-  display: grid;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   background-color: beige;

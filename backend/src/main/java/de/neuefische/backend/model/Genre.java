@@ -1,7 +1,7 @@
 package de.neuefische.backend.model;
 
 public enum Genre {
-    Concerts,
+    Concert,
     Sport,
     Comedy,
 }
