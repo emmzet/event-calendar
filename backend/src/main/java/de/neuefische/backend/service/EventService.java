@@ -6,10 +6,9 @@ import de.neuefische.backend.repo.EventRepo;
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.ExampleMatcher;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
-import java.util.UUID;
+import java.util.NoSuchElementException;
 
 @Service
 public class EventService {
@@ -41,5 +40,16 @@ public class EventService {
         return eventRepo.findAll(example);
     }
 
-    public void deleteEvent(String id) {eventRepo.deleteById(id);}
+    public void deleteEvent(String id) {
+        eventRepo.deleteById(id);
+    }
+
+    public Event updateEvent(Event event) {
+
+        if (eventRepo.existsById(event.getId())) {
+            return eventRepo.save(event);
+        } else {
+            throw new NoSuchElementException("Could not update element! Element with id does not exist: " + event.getId());
+        }
+    }
 }

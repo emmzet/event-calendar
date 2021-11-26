@@ -10,7 +10,7 @@ export default function FilterBox({setEventFilter}) {
     ];
 
     const genres = [
-        {label: 'Concerts'},
+        {label: 'Concert'},
         {label: 'Sport'},
         {label: 'Comedy'},
     ];
@@ -97,7 +97,6 @@ export default function FilterBox({setEventFilter}) {
                 disablePortal
                 id="combo-box-city"
                 options={cities}
-                sx={{width: 300}}
                 renderInput={(params) => <TextField {...params} label="City"/>}
                 onInputChange={(event, value) => handleCityChange(event, value)}
                 getOptionLabel={(city) => city.label}
@@ -107,7 +106,6 @@ export default function FilterBox({setEventFilter}) {
                 disablePortal
                 id="combo-box-genre"
                 options={genres}
-                sx={{width: 300}}
                 renderInput={(params) => <TextField {...params} label="Genre"/>}
                 onInputChange={(event, value) => handleGenreChange(event, value)}
                 getOptionLabel={(genre) => genre.label}

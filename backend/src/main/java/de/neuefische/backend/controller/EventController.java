@@ -19,15 +19,28 @@ public class EventController {
     }
 
     @PostMapping
-    public Event addEvent(@RequestBody Event event){
+    public Event addEvent(@RequestBody Event event) {
         return eventService.addEvent(event);
     }
 
     @GetMapping
-    public List<Event> getEvents( @RequestParam (required = false) String name,@RequestParam (required = false) String city, @RequestParam (required = false) Genre genre){
+    public List<Event> getEvents(@RequestParam(required = false) String name, @RequestParam(required = false) String city, @RequestParam(required = false) Genre genre) {
         return eventService.getEvents(name, city, genre);
     }
 
     @DeleteMapping({"{id}"})
-    public void deleteEvent(@PathVariable String id) { eventService.deleteEvent(id); }
+    public void deleteEvent(@PathVariable String id) {
+        eventService.deleteEvent(id);
+    }
+
+    @PutMapping("{id}")
+    public Event updateEvent(@PathVariable String id, @RequestBody Event event) {
+
+        if (!id.equals(event.getId())) {
+            throw new IllegalArgumentException("Could not update element! Path id does not match with element id in request body!");
+        }
+
+        return eventService.updateEvent(event);
+    }
 }
+

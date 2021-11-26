@@ -23,4 +23,4 @@ const NavBarContainer = styled.div`
   justify-content: center;
   gap: 15px;
   padding: 5px;
-  `
+`

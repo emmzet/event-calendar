@@ -3,7 +3,7 @@ import {useState} from "react";
 import {FaArrowAltCircleLeft, FaArrowAltCircleRight} from "react-icons/all";
 import styled from "styled-components";
 
-const ImageSlider = ({ slides }) => {
+const ImageSlider = ({slides}) => {
     const [current, setCurrent] = useState(0);
     const lenght = slides.length;
 
@@ -12,7 +12,7 @@ const ImageSlider = ({ slides }) => {
     };
 
     const prevSlide = () => {
-        setCurrent(current === 0 ? lenght -1 : current - 1)
+        setCurrent(current === 0 ? lenght - 1 : current - 1)
     };
 
     if (!Array.isArray(slides) || slides.length <= 0) {
@@ -21,25 +21,22 @@ const ImageSlider = ({ slides }) => {
 
     return (
         <Slider>
-
             <LeftArrow>
                 <FaArrowAltCircleLeft onClick={prevSlide}/>
             </LeftArrow>
-
             <RightArrow>
-            <FaArrowAltCircleRight onClick={nextSlide}/>
+                <FaArrowAltCircleRight onClick={nextSlide}/>
             </RightArrow>
-
             {SliderData.map((slide, index) => {
                 return (
                     <div className={index === current ? 'slide active' : 'slide'}
                          key={index}
-                         >
+                    >
                         {index === current && (
                             <Image src={slide.image} alt='event images'/>
                         )}
                     </div>
-                    )
+                )
             })}
         </Slider>
     )
@@ -48,33 +45,33 @@ const ImageSlider = ({ slides }) => {
 export default ImageSlider
 
 const Slider = styled.section`
-    position: relative;
-  height: 100vh;
+  position: relative;
+  height: 50vh;
   display: flex;
   justify-content: center;
   align-items: center;
   color: beige;
-  
-  .slide{
+
+  .slide {
     opacity: 0;
     transition-duration: 1s ease;
   }
-  
+
   .slide.active {
     opacity: 1;
     transition-duration: 1s;
     transform: scale(1.08);
   }
-    `
+`
 
 const Image = styled.img`
   width: 350px;
   height: 300px;
   border-radius: 10px;
-    `
+`
 
 const RightArrow = styled.div`
-position: absolute;
+  position: absolute;
   top: 50%;
   right: 32px;
   font-size: 3rem;
@@ -83,10 +80,10 @@ position: absolute;
   cursor: pointer;
   user-select: none;
   color: beige;
-    `
+`
 
 const LeftArrow = styled.div`
-position: absolute;
+  position: absolute;
   top: 50%;
   left: 32px;
   font-size: 3rem;
@@ -95,5 +92,5 @@ position: absolute;
   cursor: pointer;
   user-select: none;
   color: beige;
-    `
+`
 
