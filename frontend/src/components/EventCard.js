@@ -12,10 +12,10 @@ export default function EventCard({event, getEvents}) {
     return (
         <EventCardContainer>
             <H2> {event.name}</H2>
-            <h3> <AiOutlineStar />{event.genre}</h3>
-            <h3> <GoLocation />{event.city}</h3>
-            <h4> <BiTime />{event.date}</h4>
-            <button onClick={handleDelete} >Delete</button>
+            <h3><AiOutlineStar/>{event.genre}</h3>
+            <h3><GoLocation/>{event.city}</h3>
+            <h4><BiTime/>{event.date}</h4>
+            <button onClick={handleDelete}>Delete</button>
         </EventCardContainer>
     )
 }
@@ -36,4 +36,4 @@ const EventCardContainer = styled.div`
 `
 
 const H2 = styled.h2`
-    margin-top: 10px`
+  margin-top: 10px`
