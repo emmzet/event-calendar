@@ -1,12 +1,13 @@
 import styled from "styled-components";
 import {AiOutlineStar, BiTime, GiPartyPopper, GoLocation} from "react-icons/all";
 import axios from "axios";
+import {deleteEvent} from "../service/eventApiService";
 
 export default function EventCard({event, getEvents}) {
 
     const handleDelete = () => {
-        axios.delete(`api/event/${event.id}`)
-            .then(getEvents)
+        deleteEvent(event.id).then(getEvents)
+
     }
 
     return (

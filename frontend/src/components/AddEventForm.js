@@ -5,6 +5,7 @@ import styled from "styled-components";
 import {useEffect, useState} from "react";
 import axios from "axios";
 import moment from "moment";
+import {addEvent} from "../service/eventApiService";
 
 
 export default function AddEventForm() {
@@ -46,7 +47,7 @@ export default function AddEventForm() {
 
     const handleSubmit = (event) => {
         event.preventDefault()
-        axios.post('/api/event', eventToAdd).then(response => response.data)
+        addEvent(eventToAdd)
     }
 
     return (<AddEventFormContainer onSubmit={handleSubmit}>

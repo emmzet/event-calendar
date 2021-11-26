@@ -4,6 +4,7 @@ import {useEffect, useState} from "react";
 import EventCard from "../components/EventCard";
 import styled from "styled-components";
 import FilterBox from "../components/Filterbox";
+import {getAllEvents} from "../service/eventApiService";
 
 export default function EventsOverview({onDelete}) {
 
@@ -12,20 +13,11 @@ export default function EventsOverview({onDelete}) {
     const [eventFilter, setEventFilter] = useState({})
 
     const getEvents = () => {
-        return axios.get('api/event', {
-            params: {
-                name: eventFilter.name,
-                city: eventFilter.city,
-                genre: eventFilter.genre
-            }
-        })
-            .then(response => response.data)
-            .then(events => setEvents(events))
+        getAllEvents(eventFilter).then(events => setEvents(events)).catch(error => console.error(error.message))
     }
 
     useEffect(() => {
         getEvents()
-            .catch(error => console.error(error.message))
     }, [eventFilter])
 
     return (
