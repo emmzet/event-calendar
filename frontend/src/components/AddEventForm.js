@@ -69,9 +69,6 @@ export default function AddEventForm() {
                 getOptionLabel={(genre) => genre.label}
                 isOptionEqualToValue={(option, value) => option.label === value.label}
             />
-
-
-
             <LocalizationProvider dateAdapter={DateAdapter}>
                 <DateTimePicker
                     label='Date and time'

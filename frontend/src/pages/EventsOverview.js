@@ -60,6 +60,7 @@ const Wrapper = styled.div`
   align-items: center;
   justify-content: center;
   overflow-y: scroll;
+  background-color: beige;
   `
 
 const ListElement = styled.li`
