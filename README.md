@@ -1,10 +1,5 @@
-# event-calendar
+# we calent
 java-rem-21-4-capstone-project
 
-steps:
+### Your open source event calendar // we calent ermöglicht es euch neue Events zu erstellen und in einem eleganten und funktionalen Design abzuspeichern. Weiterhin könnt ihr eure Events nach ihren Eigenschaften filtern und auch wieder löschen.
 
-initialize project
-
-- git.ignore
-- Create Backend Module --> Spring --> Dependencies: Lombock & Spring
-- React --> npx create-react-app name-of-project im Terminal --> Create Frontend Folder --> npm install --> npm start --> Backend & Frontend sind online!

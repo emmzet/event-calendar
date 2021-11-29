@@ -96,15 +96,15 @@ public class EventServiceTest {
         updatedEvent.setGenre(Genre.Concert);
         updatedEvent.setName("Foo Fighters");
 
-        when(eventRepo.existsById(any())).thenReturn(true);
-        when(eventRepo.save(any())).thenReturn(updatedEvent);
+        when(eventRepo.existsById("123ABC")).thenReturn(true);
+        when(eventRepo.save(eventToUpdate)).thenReturn(updatedEvent);
 
         // WHEN
         Event actual = eventService.updateEvent(eventToUpdate);
 
         // THEN
         MatcherAssert.assertThat(actual, is(updatedEvent));
-        verify(eventRepo).save(any());
+        verify(eventRepo).save(eventToUpdate);
     }
 
     @Test
@@ -118,9 +118,10 @@ public class EventServiceTest {
         eventToUpdate.setGenre(Genre.Concert);
         eventToUpdate.setName("Foo Fighters");
 
+        // WHEN
         when(eventRepo.existsById("123ABC")).thenReturn(false);
 
-        // WHEN
+        // THEN
         Assertions.assertThrows(NoSuchElementException.class, () -> {
             eventService.updateEvent(eventToUpdate);
         });
