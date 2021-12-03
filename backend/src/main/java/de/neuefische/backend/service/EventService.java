@@ -25,6 +25,7 @@ public class EventService {
 
     public List<Event> getEvents(String name, String city, Genre genre) {
 
+
         ExampleMatcher exampleMatcher = ExampleMatcher.matching()
                 .withMatcher("name", ExampleMatcher.GenericPropertyMatchers.contains())
                 .withMatcher("city", ExampleMatcher.GenericPropertyMatchers.contains())
